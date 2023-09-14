@@ -58,7 +58,6 @@ pnpm run changelog
 
 ## 📧 联系
 
-- **xy Hooks** <https://encode-studio-fe.github.io/encode-hooks/>
-- **GitHub**: <https://github.com/GXY1523>
+- **GitHub**: <https://github.com/GXY1523/gxy-hooks>
 
 </br>
