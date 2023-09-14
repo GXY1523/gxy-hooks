@@ -8,55 +8,42 @@ import { message } from 'antd';
 import React, { useCallback, useRef, useState } from 'react';
 
 export default () => {
-  const [count, setCount] = useState(0);
-
-  const callbackFn = useCallback(() => {
-    message.info(`Current count is ${count}`);
-  }, [count]);
-
-  const memoizedFn = useMemoizedFn(() => {
-    message.info(`Current count is ${count}`);
-  });
-
-  return (
+  const [count,setCount]=useState(0)
+  const callbackFn=useCallback(()=>{
+    message.info(`使用 useCallback ，当前 count 值：${count}`)
+  },[count])
+  const memoizedFn=useMemoizedFn(()=>{
+    message.info(`使用 useMemoizedFn ，当前 count 值：${count}`)
+  })
+  return(
     <>
-      <p>count: {count}</p>
-      <button
-        type="button"
-        onClick={() => {
-          setCount((c) => c + 1);
-        }}
-      >
-        Add Count
-      </button>
-
-      <p>You can click the button to see the number of sub-component renderings</p>
-
-      <div style={{ marginTop: 32 }}>
-        <h3>Component with useCallback function:</h3>
-        {/* use callback function, ExpensiveTree component will re-render on state change */}
-        <ExpensiveTree showCount={callbackFn} />
-      </div>
-
-      <div style={{ marginTop: 32 }}>
-        <h3>Component with useMemoizedFn function:</h3>
-        {/* use memoized function, ExpensiveTree component will only render once */}
-        <ExpensiveTree showCount={memoizedFn} />
-      </div>
+    <p>count:{count}</p>
+    <button onClick={()=>setCount(c=>c+1)}>
+      count + 1
+    </button>
+    <p>点击上方按钮，可查看两个不同函数时，子组件渲染次数的差别</p>
+    <div style={{marginTop:10}}>
+      <h4>1. useMemoizedFn</h4>
+      <ExpensiveTree showCount={memoizedFn}/>
+      
+    </div>
+    <div style={{marginTop:10}}>
+      <h4>2. useCallback</h4>
+      <ExpensiveTree showCount={callbackFn}/>
+    </div>
     </>
-  );
+  )
 };
 
-// some expensive component with React.memo
 const ExpensiveTree = React.memo<{ [key: string]: any }>(({ showCount }) => {
   const renderCountRef = useRef(0);
   renderCountRef.current += 1;
 
   return (
     <div>
-      <p>Render Count: {renderCountRef.current}</p>
+      <p>子组件渲染次数: {renderCountRef.current}</p>
       <button type="button" onClick={showCount}>
-        showParentCount
+        父组件的count
       </button>
     </div>
   );

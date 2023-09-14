@@ -8,35 +8,23 @@ import { message } from 'antd';
 import { useMemoizedFn } from 'encodeHooks';
 
 export default () => {
-  const [count, setCount] = useState(0);
-
-  const callbackFn = useCallback(() => {
-    message.info(`Current count is ${count}`);
-  }, [count]);
-
-  const memoizedFn = useMemoizedFn(() => {
-    message.info(`Current count is ${count}`);
-  });
-
-  return (
+  const [count,setCount]=useState(0)
+  const callbackFn=useCallback(()=>{
+    message.info(`使用 useCallback ，当前 count 值：${count}`)
+  },[count])
+  const memoizedFn=useMemoizedFn(()=>{
+    message.info(`使用 useMemoizedFn ，当前 count 值：${count}`)
+  })
+  return(
     <>
-      <p>count: {count}</p>
-      <button
-        type="button"
-        onClick={() => {
-          setCount((c) => c + 1);
-        }}
-      >
-        Add Count
-      </button>
-      <div style={{ marginTop: 16 }}>
-        <button type="button" onClick={callbackFn}>
-          call callbackFn
-        </button>
-        <button type="button" onClick={memoizedFn} style={{ marginLeft: 8 }}>
-          call memoizedFn
-        </button>
-      </div>
+    <p>count:{count}</p>
+    <button onClick={()=>setCount(c=>c+1)}>
+      count + 1
+    </button>
+    <div style={{marginTop:10}}>
+      <button onClick={memoizedFn} style={{marginRight:10}}>useMemoizedFn</button>
+      <button onClick={callbackFn}>useCallback</button>
+    </div>
     </>
-  );
+  )
 };
