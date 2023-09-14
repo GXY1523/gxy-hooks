@@ -18,7 +18,7 @@ export default {
       'fusion',
     ],
   ],
-  title: 'xy hooks',
+  title: 'gxy hooks',
   mode: 'site',
   favicon: '/encode-hooks/avatar.png',
   logo: '/encode-hooks/avatar.png',

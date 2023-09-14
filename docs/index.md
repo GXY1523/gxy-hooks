@@ -20,9 +20,9 @@ footer: Copyright (c) © 2023 by GXY, All Rights Reserved
 ## 📦 安装
 
 ```bash
-$ pnpm install --save xy-hooks
+$ pnpm install --save gxy-hooks
 # or
-$ yarn add xy-hooks
+$ yarn add gxy-hooks
 ```
 
 ## 🔨 使用
