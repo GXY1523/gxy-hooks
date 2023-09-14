@@ -1,4 +1,4 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from 'dumi';
 
 export default defineConfig({
   nodeModulesTransform: {
