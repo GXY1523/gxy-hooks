@@ -7,13 +7,13 @@ import React from 'react';
 import { useCookieState } from 'encodeHooks';
 
 export default () => {
-  const [message, setMessage] = useCookieState('useCookieStateString');
+  const [message,setMessage]=useCookieState('useCookieState1')
   return (
     <input
+      placeholder='请输入任意值'
       value={message}
-      placeholder="Please enter some words..."
-      onChange={(e) => setMessage(e.target.value)}
-      style={{ width: 300 }}
+      onChange={e=>setMessage(e.target.value)}
+      style={{ width:'30%' }}
     />
-  );
+  )
 };

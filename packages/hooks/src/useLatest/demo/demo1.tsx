@@ -7,20 +7,18 @@ import React, { useState, useEffect } from 'react';
 import { useLatest } from 'encodeHooks';
 
 export default () => {
-  const [count, setCount] = useState(0);
-
-  const latestCountRef = useLatest(count);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(latestCountRef.current + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const [num,setNum] = useState(0)
+  const latestNumRef=useLatest(num)
+  useEffect(()=>{
+    const interval=setInterval(()=>{
+      setNum(latestNumRef.current+1)
+    },1000)
+    return ()=> clearInterval(interval)
+  },[])
 
   return (
     <>
-      <p>count: {count}</p>
+      <p>num: {num}</p>
     </>
-  );
-};
+  )
+}

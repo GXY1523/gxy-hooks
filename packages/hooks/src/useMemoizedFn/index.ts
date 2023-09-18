@@ -8,7 +8,7 @@ type PickFunction<T extends noop>=(this:ThisParameterType<T>,...args:Parameters<
 export default function useMemoizedFn<T extends noop>(fn:T){
   if(isDev){
     if(!isFunction(fn)){
-      console.log(`useMemoizedFn所需参数为函数类型，但传入的参数类型：${typeof fn}`);
+      console.error(`useMemoizedFn所需参数为函数类型，但传入的参数类型：${typeof fn}`);
       
     }
   }

@@ -7,30 +7,25 @@ import React from 'react';
 import { useCookieState } from 'encodeHooks';
 
 export default function App() {
-  const [value, setValue] = useCookieState('useCookieStateUpdater', {
-    defaultValue: '0',
-  });
-
+  const [num,setNum]=useCookieState('useCookieState2',{
+    defaultValue:'0'
+  })
   return (
     <>
-      <p>{value}</p>
-      <button
-        type="button"
-        style={{ marginRight: '16px' }}
-        onClick={() => setValue((v) => String(Number(v) + 1))}
-      >
-        inc +
-      </button>
-      <button
-        type="button"
-        style={{ marginRight: '16px' }}
-        onClick={() => setValue((v) => String(Number(v) - 1))}
-      >
-        dec -
-      </button>
-      <button type="button" onClick={() => setValue('0')}>
-        reset
-      </button>
+      <p>{num}</p>
+      <div>
+        <button 
+          style={{marginRight:10}}
+          onClick={()=>setNum(item=>String(Number(item)+1))}  
+        > + 1 </button>
+        <button 
+          style={{marginRight:10}}
+          onClick={()=>setNum(item=>String(Number(item)-1))}  
+        > - 1 </button>
+        <button 
+          onClick={()=>setNum('0')}  
+        > reset </button>
+      </div>
     </>
-  );
+  )
 }

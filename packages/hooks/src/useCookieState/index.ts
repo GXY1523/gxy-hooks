@@ -11,7 +11,7 @@ export interface Options extends Cookies.CookieAttributes{
 export default function useCookieState(cookieKey: string,options: Options={}) {
   const [state,setState]=useState<State>(()=>{
     const cookieValue=Cookies.get(cookieKey)
-    if(isString(cookieKey)) return cookieKey
+    if(isString(cookieValue)) return cookieValue
     if(isFunction(options.defaultValue)) return options.defaultValue()
     return options.defaultValue
   })

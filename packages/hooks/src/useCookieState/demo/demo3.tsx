@@ -7,40 +7,28 @@ import React from 'react';
 import { useCookieState } from 'encodeHooks';
 
 export default function App() {
-  const [value, setValue] = useCookieState('useCookieStateOptions', {
-    defaultValue: '0',
-    path: '/',
-    expires: (() => new Date(+new Date() + 10000))(),
-  });
-
+  const [num,setNum]=useCookieState('useCookieState3',{
+    defaultValue:'0',
+    path:'/',
+    expires:(()=>new Date(+new Date()+2000))()
+  })
   return (
     <>
-      <p>{value}</p>
-      <button
-        type="button"
-        style={{ marginRight: 16 }}
-        onClick={() =>
-          setValue((v) => String(Number(v) + 1), {
-            expires: (() => new Date(+new Date() + 10000))(),
-          })
-        }
-      >
-        inc + (10s expires)
-      </button>
-      <button
-        type="button"
-        style={{ marginRight: 16 }}
-        onClick={() =>
-          setValue((v) => String(Number(v) - 1), {
-            expires: (() => new Date(+new Date() + 10000))(),
-          })
-        }
-      >
-        dec - (10s expires)
-      </button>
-      <button type="button" onClick={() => setValue('0')}>
-        reset
-      </button>
+      <p>{num}</p>
+      <p>此时Cookie存储有效期： 2000ms</p>
+      <div>
+        <button 
+          style={{marginRight:10}}
+          onClick={()=>setNum(item=>String(Number(item)+1))}  
+        > + 1 </button>
+        <button 
+          style={{marginRight:10}}
+          onClick={()=>setNum(item=>String(Number(item)-1))}  
+        > - 1 </button>
+        <button 
+          onClick={()=>setNum('0')}  
+        > reset </button>
+      </div>
     </>
-  );
+  )
 }

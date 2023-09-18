@@ -7,23 +7,23 @@ import { useBoolean, useUnmount } from 'encodeHooks';
 import { message } from 'antd';
 import React from 'react';
 
-const MyComponent = () => {
-  useUnmount(() => {
+const MyComponent=()=>{
+  useUnmount(()=>{
     message.info('unmount');
   });
+  return (
+    <p>useUnmount 的使用</p>
+  )
+}
 
-  return <p>Hello World!</p>;
-};
-
-export default () => {
-  const [state, { toggle }] = useBoolean(true);
-
+export default ()=>{
+  const [state,{toggle}] = useBoolean(true)
   return (
     <>
-      <button type="button" onClick={toggle}>
+      <button onClick={toggle}>
         {state ? 'unmount' : 'mount'}
       </button>
-      {state && <MyComponent />}
+      {state && <MyComponent/>}
     </>
-  );
-};
+  )
+}
