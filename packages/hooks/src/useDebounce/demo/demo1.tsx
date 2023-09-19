@@ -7,18 +7,21 @@ import React, { useState } from 'react';
 import { useDebounce } from 'encodeHooks';
 
 export default () => {
-  const [value, setValue] = useState<string>();
-  const debouncedValue = useDebounce(value, { wait: 500 });
+  const [val,setVal] = useState<string>();
+  const DebouncedValue = useDebounce(val,{wait: 800});
 
   return (
     <div>
-      <input
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Typed value"
-        style={{ width: 280 }}
+      <input 
+        type="text" 
+        value={val}
+        placeholder='请输入'
+        onChange={e => setVal(e.target.value)}
+        style={{width: 200}}
       />
-      <p style={{ marginTop: 16 }}>DebouncedValue: {debouncedValue}</p>
-    </div>
-  );
+      <p>
+        输入框内的值：{DebouncedValue}
+      </p>
+    </div>    
+  )
 };
