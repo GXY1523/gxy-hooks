@@ -8,7 +8,8 @@ const callToggle = (hook: any) => {
 };
 
 describe('useToggle', () => {
-  it('test on init', async () => {
+  it('针对基础功能的使用测试', async () => {
+    // renderHook(() => useToggle()) 表示 是一个 react hooks
     const hook = renderHook(() => useToggle());
     expect(hook.result.current[0]).toBeFalsy();
   });

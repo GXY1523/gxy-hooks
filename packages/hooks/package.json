@@ -15,8 +15,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": "https://github.com/encode-studio-fe/encode-hooks",
-  "homepage": "https://github.com/encode-studio-fe/encode-hooks",
+  "repository": "https://github.com/GXY1523/gxy-hooks",
+  "homepage": "https://github.com/GXY1523/gxy-hooks",
   "scripts": {
     "build": "gulp && webpack-cli"
   },

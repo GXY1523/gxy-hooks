@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const merge = require('webpack-merge'); //结合 基本的webpack导出
 const common = require('../../webpack.common.js');
 const path = require('path');
 
