@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: DebouncedValue 只会在输入结束 500ms 后变化。
+ * desc: DebouncedValue 只会在输入结束 800ms 后变化。
  */
 
 import React, { useState } from 'react';

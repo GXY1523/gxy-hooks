@@ -8,38 +8,36 @@ import isDev from '../utils/isDev';
 
 type noop = (...args: any[]) => any;
 
-function useThrottleFn<T extends noop>(fn: T, options?: ThrottleOptions) {
+export default function useThrottleFn<T extends noop>(fn: T,options?: ThrottleOptions) {
   if (isDev) {
     if (!isFunction(fn)) {
-      console.error(`useThrottleFn expected parameter is a function, got ${typeof fn}`);
+      console.error(`useThrottleFn 所需参数为函数类型，但传入的参数类型：${typeof fn}`)
     }
   }
 
   const fnRef = useLatest(fn);
-
   const wait = options?.wait ?? 1000;
-
   const throttled = useMemo(
-    () =>
+    () => 
       throttle(
         (...args: Parameters<T>): ReturnType<T> => {
           return fnRef.current(...args);
         },
         wait,
-        options,
-      ),
-    [],
-  );
+        options
+        
+      ),[]
+    
+  )
 
   useUnmount(() => {
-    throttled.cancel();
-  });
+    throttled.cancel()
+  })
 
   return {
     run: throttled,
     cancel: throttled.cancel,
-    flush: throttled.flush,
-  };
+    flush: throttled.flush
+  }
+  
 }
-
-export default useThrottleFn;

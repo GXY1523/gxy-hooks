@@ -7,17 +7,16 @@ import React, { useEffect } from 'react';
 import { useGetState } from 'encodeHooks';
 
 export default () => {
-  const [count, setCount, getCount] = useGetState<number>(0);
+  const [num, setNum, getNum] = useGetState<number>(0)
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      console.log('固定时间间隔后的结果：', getNum());
+      
+    },3000)
+    return ()=>{
+      clearInterval(interval)
+    }
+  },[])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log('interval count', getCount());
-    }, 3000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  return <button onClick={() => setCount((count) => count + 1)}>count: {count}</button>;
+  return <button onClick={() => setNum(n=>n+1)}>num:{num}</button>
 };
