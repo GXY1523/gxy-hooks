@@ -29,7 +29,7 @@ describe('useToggle', () => {
     expect(hook.result.current[0]).toBeFalsy();
   });
 
-  it('test on optional', () => {
+  it('针对手动切换toggle模拟', () => {
     const hook = renderHook(() => useToggle('Hello', 'World'));
     callToggle(hook);
     expect(hook.result.current[0]).toBe('World');

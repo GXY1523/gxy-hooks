@@ -5,6 +5,7 @@ const fse = require('fs-extra');
 const fg = require('fast-glob');
 const gm = require('gray-matter');
 
+// 添加 hooks 的文档声明  meta.json
 async function genDesc(mdPath) {
   if (!fs.existsSync(mdPath)) {
     return;
