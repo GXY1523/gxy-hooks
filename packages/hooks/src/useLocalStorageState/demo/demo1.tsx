@@ -7,26 +7,21 @@ import React from 'react';
 import { useLocalStorageState } from 'encodeHooks';
 
 export default function () {
-  const [message, setMessage] = useLocalStorageState<string | undefined>(
-    'use-local-storage-state-demo1',
-    {
-      defaultValue: 'Hello~',
-    },
-  );
+  const [inputVal, setInputVal] = useLocalStorageState<string | undefined>('demo1', {defaultValue:'demo111'})
 
   return (
     <>
-      <input
-        value={message || ''}
-        placeholder="Please enter some words..."
-        onChange={(e) => setMessage(e.target.value)}
+      <input 
+        type="text"
+        value={inputVal || ''}
+        placeholder='请输入'
+        onChange={e => setInputVal(e.target.value)}
       />
-      <button style={{ margin: '0 8px' }} type="button" onClick={() => setMessage('Hello~')}>
-        Reset
-      </button>
-      <button type="button" onClick={() => setMessage(undefined)}>
-        Clear
-      </button>
+      <div>
+        <button onClick={() => setInputVal('demo111')} style={{marginLeft: '10px'}}>reset</button>
+        <button onClick={() => setInputVal(undefined)}>clear</button>
+      </div>
+      
     </>
-  );
+  )
 }
