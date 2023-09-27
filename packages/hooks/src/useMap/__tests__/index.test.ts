@@ -18,7 +18,7 @@ describe('useMap', () => {
     expect(utils).toStrictEqual({
       get: expect.any(Function),
       set: expect.any(Function),
-      setAll: expect.any(Function),
+      setNew: expect.any(Function),
       remove: expect.any(Function),
       reset: expect.any(Function),
     });
@@ -123,7 +123,7 @@ describe('useMap', () => {
     const [, utils] = result.current;
 
     act(() => {
-      utils.setAll([
+      utils.setNew([
         ['foo', 'foo'],
         ['a', 2],
       ]);
@@ -136,7 +136,7 @@ describe('useMap', () => {
 
     act(() => {
       // @ts-ignore
-      utils.setAll();
+      utils.setNew();
     });
     expect([...result.current[0]]).toEqual([]);
   });

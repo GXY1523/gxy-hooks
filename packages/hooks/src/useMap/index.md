@@ -18,7 +18,7 @@ const [
   map,
   {
     set,
-    setAll,
+    setNew,
     remove,
     reset,
     get
@@ -33,7 +33,7 @@ const [
 | map    | Map 对象              | `Map<K, V>`                          |
 | set    | 添加元素              | `(key: K, value: V) => void`         |
 | get    | 获取元素              | `(key: K) => V \| undefined`         |
-| setAll | 生成一个新的 Map 对象 | `(newMap: Iterable<[K, V]>) => void` |
+| setNew | 生成一个新的 Map 对象 | `(newMap: Iterable<[K, V]>) => void` |
 | remove | 移除元素              | `(key: K) => void`                   |
 | reset  | 重置为默认值          | `() => void`                         |
 

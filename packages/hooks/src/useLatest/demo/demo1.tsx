@@ -11,7 +11,14 @@ export default () => {
   const latestNumRef=useLatest(num)
   useEffect(()=>{
     const interval=setInterval(()=>{
-      setNum(latestNumRef.current+1)
+      // 此处num是闭包（因为得到的num是函数作用域外面的），是外部num的初始值0
+      // console.log(num);
+      console.log(latestNumRef.current);  //此时结果会更新
+      
+      // 返回的是 setState 的值
+      // setNum(cur=>cur+1)
+
+      setNum(latestNumRef.current+1)  
     },1000)
     return ()=> clearInterval(interval)
   },[])

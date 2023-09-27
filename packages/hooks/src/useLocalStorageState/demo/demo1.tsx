@@ -17,8 +17,8 @@ export default function () {
         placeholder='请输入'
         onChange={e => setInputVal(e.target.value)}
       />
-      <div>
-        <button onClick={() => setInputVal('demo111')} style={{marginLeft: '10px'}}>reset</button>
+      <div style={{marginTop: '10px'}}>
+        <button onClick={() => setInputVal('demo111')} style={{marginRight: '10px'}}>reset</button>
         <button onClick={() => setInputVal(undefined)}>clear</button>
       </div>
       
