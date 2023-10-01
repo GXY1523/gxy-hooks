@@ -4,16 +4,13 @@ import useMemoizedFn from '../useMemoizedFn';
 
 type ResetState = () => void;
 
-const useResetState = <S>(
-  initialState: S | (() => S),
-): [S, Dispatch<SetStateAction<S>>, ResetState] => {
-  const [state, setState] = useState(initialState);
-
+ const useResetState = <S>(initial: S | (() => S)): [S, Dispatch<SetStateAction<S>>, ResetState] => {
+  const [state,setState] = useState(initial)
   const resetState = useMemoizedFn(() => {
-    setState(initialState);
-  });
+    setState(initial)
+  })
 
-  return [state, setState, resetState];
-};
+  return [state, setState, resetState]
+}
 
-export default useResetState;
+export default useResetState

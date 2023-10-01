@@ -12,11 +12,11 @@ describe('usePrevious', () => {
     });
   }
 
-  it('should return undefined on init', () => {
+  it('初始化时返回 undefined', () => {
     expect(getHook().result.current).toBeUndefined();
   });
 
-  it('should update previous value only after render with different value', () => {
+  it('不同的值渲染后更新 previous', () => {
     const hook = getHook(0, () => true);
 
     expect(hook.result.current).toBeUndefined();
@@ -36,7 +36,7 @@ describe('usePrevious', () => {
     expect(hook.result.current).toBe(4);
   });
 
-  it('should not update previous value if current value is the same', () => {
+  it('更新的值与原值相同', () => {
     const hook = getHook(0);
     expect(hook.result.current).toBeUndefined();
     hook.rerender({ val: 1 });
@@ -45,7 +45,7 @@ describe('usePrevious', () => {
     expect(hook.result.current).toBe(0);
   });
 
-  it('should work fine with `undefined` values', () => {
+  it('值为 undefined', () => {
     const hook = renderHook(({ value }) => usePrevious(value), {
       initialProps: { value: undefined as undefined | number },
     });
@@ -62,7 +62,7 @@ describe('usePrevious', () => {
     expect(hook.result.current).toBeUndefined();
   });
 
-  it('should receive a predicate as a second parameter that will compare prev and current', () => {
+  it('receive a predicate as a second parameter', () => {
     const obj1 = { label: 'John', value: 'john' };
     const obj2 = { label: 'Jonny', value: 'john' };
     const obj3 = { label: 'Kate', value: 'kate' };

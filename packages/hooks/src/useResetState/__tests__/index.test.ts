@@ -13,23 +13,23 @@ describe('useResetState', () => {
       } as const;
     });
 
-  it('should support initialValue', () => {
+  it('有初始值', () => {
     const hook = setUp({
       hello: 'world',
     });
     expect(hook.result.current.state).toEqual({ hello: 'world' });
   });
 
-  it('should reset state', () => {
+  it('reset', () => {
     const hook = setUp({
-      hello: '',
-      count: 0,
+      name: 'qwe', 
+      job: ''
     });
 
     act(() => {
       hook.result.current.setState({
-        hello: 'world',
-        count: 1,
+        name: 'q', 
+        job: 't'
       });
     });
 
@@ -37,10 +37,10 @@ describe('useResetState', () => {
       hook.result.current.resetState();
     });
 
-    expect(hook.result.current.state).toEqual({ hello: '', count: 0 });
+    expect(hook.result.current.state).toEqual({ name: 'qwe', job: '' });
   });
 
-  it('should support function update', () => {
+  it('支持函数更新', () => {
     const hook = setUp({
       count: 0,
     });

@@ -2,27 +2,33 @@ import React from 'react';
 import { useSet } from 'encodeHooks';
 
 export default () => {
-  const [set, { add, remove, reset }] = useSet(['Hello']);
+  const [setval, {add, remove, reset}] = useSet(['q1','q2'])
 
   return (
-    <div>
-      <button type="button" onClick={() => add(String(Date.now()))}>
-        Add Timestamp
-      </button>
-      <button
-        type="button"
-        onClick={() => remove('Hello')}
-        disabled={!set.has('Hello')}
-        style={{ margin: '0 8px' }}
-      >
-        Remove Hello
-      </button>
-      <button type="button" onClick={() => reset()}>
-        Reset
-      </button>
-      <div style={{ marginTop: 16 }}>
-        <pre>{JSON.stringify(Array.from(set), null, 2)}</pre>
+    <>
+      <div>
+
+        <button 
+          onClick={() => add(String(Date.now()))}
+          style={{marginRight: '10px'}}
+        >添加</button>
+        
+        <button 
+          onClick={() => remove('q2')}
+          disabled = {!setval.has('q2')}
+          style={{marginRight: '10px'}}
+        >移除</button>
+
+        <button 
+          onClick={() => reset()}
+          style={{marginRight: '10px'}}
+        >重置</button>
+        
       </div>
-    </div>
-  );
+
+      <div style={{marginTop: '10px'}}>
+        <pre>{JSON.stringify(Array.from(setval), null, 2)}</pre>
+      </div>
+    </>
+  )
 };

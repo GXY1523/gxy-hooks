@@ -1,42 +1,38 @@
 import { useState } from 'react';
 import useMemoizedFn from '../useMemoizedFn';
 
-function useSet<K>(initialValue?: Iterable<K>) {
-  const getInitValue = () => new Set(initialValue);
-  const [set, setSet] = useState<Set<K>>(getInitValue);
+export default function useSet<K>(initialValue?: Iterable<K>) {
+  const getIniVal=() => new Set(initialValue);
+  const [setval,setSetval] = useState(getIniVal);
 
   const add = (key: K) => {
-    if (set.has(key)) {
+    if(setval.has(key)) {
       return;
     }
-    setSet((prevSet) => {
-      const temp = new Set(prevSet);
+    setSetval( set => {
+      const temp = new Set(set);
       temp.add(key);
       return temp;
-    });
-  };
+    })
+  }
+
+  const reset = () => setSetval(getIniVal())
 
   const remove = (key: K) => {
-    if (!set.has(key)) {
-      return;
-    }
-    setSet((prevSet) => {
-      const temp = new Set(prevSet);
+    if(!setval.has(key)) return;
+    setSetval(set => {
+      const temp = new Set(set);
       temp.delete(key);
       return temp;
-    });
-  };
-
-  const reset = () => setSet(getInitValue());
+    })
+  }
 
   return [
-    set,
+    setval,
     {
       add: useMemoizedFn(add),
       remove: useMemoizedFn(remove),
-      reset: useMemoizedFn(reset),
-    },
+      reset: useMemoizedFn(reset)
+    }
   ] as const;
 }
-
-export default useSet;

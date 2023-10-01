@@ -1,33 +1,31 @@
 import React from 'react';
 import { useResetState } from 'encodeHooks';
+import { set } from 'js-cookie';
 
-interface State {
-  hello: string;
-  count: number;
+interface People {
+  name: string;
+  job: string;
 }
 
 export default () => {
-  const [state, setState, resetState] = useResetState<State>({
-    hello: '',
-    count: 0,
-  });
+  const [state, setState, resetState] = useResetState<People>({name: 'qwe', job: 'student'});
 
   return (
     <div>
       <pre>{JSON.stringify(state, null, 2)}</pre>
-      <p>
-        <button
-          type="button"
-          style={{ marginRight: '8px' }}
-          onClick={() => setState({ hello: 'world', count: 1 })}
+      <div style={{marginTop:'10px'}}>
+        <button 
+          onClick={() => setState({name: 'q', job: 't'})}
+          style={{marginRight:'10px'}}
         >
-          set hello and count
+          set
         </button>
-
-        <button type="button" onClick={resetState}>
-          resetState
+        <button 
+          onClick={resetState}
+        >
+          reset
         </button>
-      </p>
+      </div>
     </div>
   );
 };

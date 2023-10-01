@@ -11,75 +11,66 @@ interface Person {
   job: string;
 }
 
-const nameCompareFunction = (prev: Person | undefined, next: Person) => {
-  if (!prev) {
-    return true;
-  }
-  if (prev.name !== next.name) {
-    return true;
-  }
+const nameShouleUpdate = (pre: Person | undefined, next: Person) => {
+  if(!pre) return true;
+  if(pre.name!==next.name) return true;
   return false;
-};
+}
 
-const jobCompareFunction = (prev: Person | undefined, next: Person) => {
-  if (!prev) {
-    return true;
-  }
-  if (prev.job !== next.job) {
-    return true;
-  }
+const jobShouleUpdate = (pre: Person | undefined, next: Person) => {
+  if(!pre) return true;
+  if(pre.job!==next.job) return true;
   return false;
-};
+}
 
 export default () => {
-  const [state, setState] = useState({ name: 'Jack', job: 'student' });
-  const [nameInput, setNameInput] = useState('');
-  const [jobInput, setJobInput] = useState('');
-  const previousName = usePrevious(state, nameCompareFunction);
-  const previousJob = usePrevious(state, jobCompareFunction);
+  const [person, setPerson] = useState({name: 'qwe', job: 'student'});
+  const [nameInput, setNameInput] = useState('')
+  const [jobInput, setJobInput] = useState('')
+  const preName=usePrevious(person,nameShouleUpdate)
+  const preJob=usePrevious(person,jobShouleUpdate)
 
   return (
     <>
-      <div style={{ margin: '8px 0', border: '1px solid #e8e8e8', padding: 8 }}>
-        <div>current name: {state.name}</div>
-        <div>current job: {state.job}</div>
+      <div style={{border:'1px solid #efefef', paddingLeft:'10px'}}>
+        <p>current name : {person.name}</p>
+        <p>current job : {person.job}</p>
       </div>
-      <div>previous name: {(previousName || {}).name}</div>
-      <div style={{ marginBottom: 8 }}>previous job: {(previousJob || {}).job}</div>
-      <div style={{ marginTop: 8 }}>
-        <input
-          style={{ width: 220 }}
-          value={nameInput}
-          onChange={(e) => setNameInput(e.target.value)}
-          placeholder="new name"
-        />
-        <button
-          type="button"
-          onClick={() => {
-            setState((s) => ({ ...s, name: nameInput }));
-          }}
-          style={{ marginLeft: 8 }}
-        >
-          update
-        </button>
+
+      <div style={{marginTop:'10px', border:'1px solid #efefef', paddingLeft:'10px'}}>
+        <p>previous name : {(preName || {}).name}</p>
+        <p>previous job : {(preJob || {}).job}</p>
       </div>
-      <div style={{ marginTop: 8 }}>
-        <input
-          style={{ width: 220 }}
-          value={jobInput}
-          onChange={(e) => setJobInput(e.target.value)}
-          placeholder="new job"
-        />
-        <button
-          type="button"
-          onClick={() => {
-            setState((s) => ({ ...s, job: jobInput }));
-          }}
-          style={{ marginLeft: 8 }}
-        >
-          update
-        </button>
+
+      <div style={{marginTop:'10px'}}>
+        <div>
+          <input 
+            style={{width: 220, marginRight:'10px'}} 
+            value={nameInput}
+            onChange={e => setNameInput(e.target.value)}
+            placeholder='请输入 名字'
+          />
+          <button
+            onClick={() => {setPerson(c => ({...c, name: nameInput}))}}
+          >
+            更新名字
+          </button>
+        </div>
+
+        <div style={{marginTop:'10px'}}>
+          <input 
+            style={{width: 220, marginRight:'10px'}} 
+            value={jobInput}
+            onChange={e => setJobInput(e.target.value)}
+            placeholder='请输入 职业'
+          />
+          <button
+            onClick={() => {setPerson(c => ({...c, job: jobInput}))}}
+          >
+            更新职业
+          </button>
+        </div>
       </div>
     </>
-  );
-};
+  )
+}
