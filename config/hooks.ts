@@ -27,6 +27,14 @@ export const menus = [
     children: ['useDebounceFn', 'useThrottleFn', 'useUpdateEffect'],
   },
   {
+    title: 'DOM',
+    children: [
+      'useTitle',
+      'useEventListener',
+      'useDocumentVisibility'
+    ],
+  },
+  {
     title: '进阶',
     children: ['useLatest', 'useMemoizedFn'],
   },

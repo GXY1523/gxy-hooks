@@ -1,0 +1,73 @@
+import type { BasicTarget } from "../utils/domTarget"; 
+import useLatest from "../useLatest";
+import useEffectWithTarget from "../utils/useEffectWithTarget";
+import { getTargetElement } from "../utils/domTarget";
+
+type noop = (...p: any) => void;
+// 指定事件监听器的目标元素
+export type Target = BasicTarget<HTMLElement | Element | Window | Document>
+
+type Options<T extends Target = Target> = {
+  target?: T;
+  capture?: boolean;
+  once?: boolean;
+  passive?: boolean;
+}
+
+function useEventListener<K extends keyof HTMLElementEventMap>(
+  eventName: K,
+  handler: (ev: HTMLElementEventMap[K]) => void,
+  options?: Options<HTMLElement>
+):void;
+
+function useEventListener<K extends keyof ElementEventMap>(
+  eventName: K,
+  handler: (ev: ElementEventMap[K]) => void,
+  options?: Options<Element>
+):void;
+
+function useEventListener<K extends keyof WindowEventMap>(
+  eventName: K,
+  handler: (ev: WindowEventMap[K]) => void,
+  options?: Options<Window>
+):void;
+
+function useEventListener<K extends keyof DocumentEventMap>(
+  eventName: K,
+  handler: (ev: DocumentEventMap[K]) => void,
+  options?: Options<Document>
+):void;
+
+function useEventListener(eventName: string, handler: noop, options: Options) : void;
+function useEventListener(eventName: string, handler: noop, options: Options = {}) {
+  const handlerRef = useLatest(handler);
+
+  useEffectWithTarget(
+    () => {
+      // 获取目标元素
+      const targetElement = getTargetElement(options.target, window);
+      if(!targetElement?.addEventListener) {
+        return;
+      }
+      const eventListener = (event: Event) => {
+        return handlerRef.current(event);
+      }
+      targetElement.addEventListener(eventName, eventListener, {
+        capture: options.capture,
+        once: options.once,
+        passive: options.passive
+      })
+
+      return () => {
+        targetElement.removeEventListener(eventName, eventListener, {
+          capture: options.capture  //是否在捕获阶段移除监听器
+          // 确保组件卸载时，相关的事件监听器被清理，避免可能的内存泄漏
+        })
+      }
+    },
+    [eventName, options.capture, options.once, options.passive],
+    options.target
+  )
+}
+
+export default useEventListener

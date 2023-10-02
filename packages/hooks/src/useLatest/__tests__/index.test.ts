@@ -4,7 +4,7 @@ import useLatest from '../index';
 const setUp = (val) => renderHook((state) => useLatest(state), { initialProps: val });
 
 describe('useLatest', () => {
-  it('useLatest with basic variable should work', async () => {
+  it('使用基本变量', async () => {
     const { result, rerender } = setUp(0);
 
     rerender(1);
@@ -17,7 +17,7 @@ describe('useLatest', () => {
     expect(result.current.current).toBe(3);
   });
 
-  it('useLatest with reference variable should work', async () => {
+  it('使用引用变量', async () => {
     const { result, rerender } = setUp({});
 
     expect(result.current.current).toEqual({});

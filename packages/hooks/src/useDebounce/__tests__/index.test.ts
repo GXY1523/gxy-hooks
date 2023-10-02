@@ -3,7 +3,7 @@ import useDebounce from '../index';
 import { sleep } from '../../utils/testingHelpers';
 
 describe('useDebounce', () => {
-  it('useDebounce wait:200ms', async () => {
+  it('useDebounce 时间为 200ms', async () => {
     let mountedState = 0;
     const { result, rerender } = renderHook(() => useDebounce(mountedState, { wait: 200 }));
     expect(result.current).toBe(0);

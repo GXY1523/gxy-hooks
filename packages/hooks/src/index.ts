@@ -20,7 +20,9 @@ import useToggle from './useToggle';
 import useUnmount from './useUnmount';
 import useUnmountedRef from './useUnmountedRef';
 import useUpdateEffect from './useUpdateEffect';
-
+import useTitle from './useTitle';
+import useEventListener from './useEventListener';
+import useDocumentVisibility from './useDocumentVisibility';
 export {
   createUpdateEffect,
   useBoolean,
@@ -44,4 +46,7 @@ export {
   useUnmount,
   useUnmountedRef,
   useUpdateEffect,
+  useTitle,
+  useEventListener,
+  useDocumentVisibility
 };
