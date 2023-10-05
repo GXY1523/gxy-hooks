@@ -24,6 +24,8 @@ import useTitle from './useTitle';
 import useEventListener from './useEventListener';
 import useDocumentVisibility from './useDocumentVisibility';
 import useClickAway from './useClickAway';
+import useEventTarget from './useEventTarget';
+import useHover from './useHover';
 export {
   createUpdateEffect,
   useBoolean,
@@ -50,5 +52,7 @@ export {
   useTitle,
   useEventListener,
   useDocumentVisibility,
-  useClickAway
+  useClickAway,
+  useEventTarget,
+  useHover
 };

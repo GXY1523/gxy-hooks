@@ -32,7 +32,9 @@ export const menus = [
       'useTitle',
       'useEventListener',
       'useDocumentVisibility',
-      'useClickAway'
+      'useClickAway',
+      'useEventTarget',
+      'useHover'
     ],
   },
   {
