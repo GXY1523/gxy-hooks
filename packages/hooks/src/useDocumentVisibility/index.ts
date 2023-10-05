@@ -8,7 +8,7 @@ const getVisible = () => {
   return document.visibilityState;
 }
 
-export default function useDocumentVisibility() {
+export default function useDocumentVisibility(): visibleState {
   const [documentVisibility, setDocumentVisibility] = useState(() => getVisible());
   
   useEventListener(

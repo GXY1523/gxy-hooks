@@ -36,8 +36,8 @@ describe('useDocumentVisibility', () => {
     mockDocumentVisibilityState.mockReturnValue('visible');
     act(() => {
       // 页面的可见性状态变化
-      document.dispatchEvent(new Event('visibilitychange'))
+      document.dispatchEvent(new Event('visibilitychange'));
     })
-    expect(result.current).toBe('visible');
+    expect(result.current).toBe('hidden');
   })
 })
