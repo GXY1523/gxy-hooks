@@ -162,6 +162,7 @@ describe('useDrop', () => {
     // toMatchObject 验证这个参数是否包含data对象中的所有属性和属性值
     expect(onDom.mock.calls[0][0]).toMatchObject(data);
 
+    // catch JSON.parse error
     jest.spyOn(mockEvent.dataTransfer, 'getData').mockImplementation((format: string) => {
       if(format === 'custom') return {}
     })
