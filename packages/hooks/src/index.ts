@@ -26,6 +26,9 @@ import useDocumentVisibility from './useDocumentVisibility';
 import useClickAway from './useClickAway';
 import useEventTarget from './useEventTarget';
 import useHover from './useHover';
+import useMount from './useMount';
+import useDrag from './useDrag';
+import useDrop from './useDrop';
 export {
   createUpdateEffect,
   useBoolean,
@@ -54,5 +57,8 @@ export {
   useDocumentVisibility,
   useClickAway,
   useEventTarget,
-  useHover
+  useHover,
+  useMount,
+  useDrag,
+  useDrop
 };
