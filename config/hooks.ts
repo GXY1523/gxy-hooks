@@ -35,7 +35,8 @@ export const menus = [
       'useClickAway',
       'useEventTarget',
       'useHover',
-      'useDrop'
+      'useDrop',
+      'useMutationObserver'
     ],
   },
   {

@@ -29,6 +29,7 @@ import useHover from './useHover';
 import useMount from './useMount';
 import useDrag from './useDrag';
 import useDrop from './useDrop';
+import useMutationObserver from './useMutationObserver';
 export {
   createUpdateEffect,
   useBoolean,
@@ -60,5 +61,6 @@ export {
   useHover,
   useMount,
   useDrag,
-  useDrop
+  useDrop,
+  useMutationObserver
 };
