@@ -1,8 +1,8 @@
-# gxy-hooks
+# xyHooks
 
 React Hooks
 
-## ⛰️ 能力支持
+## 🧩 能力支持
 
 ### 1. 可靠的代码健壮
 
@@ -16,12 +16,12 @@ React Hooks
 
 配套完整的测试用例，可提升项目健壮性
 
-## 🌟 设计目的
+## 🚀 设计目的
 
 1. xyHooks 库可实现功能复用。可以将某些功能逻辑抽象成可以复用的 Hooks，从而在不同的组件中共享相同的逻辑。帮助开发者减少相同代码块的编写工作，减少代码量，简化组件逻辑，可提高代码的可复用性。
 2. xyHooks 库可提高代码的可维护性。将特定的功能逻辑封装在 Hooks 中，使得代码结构更加清晰并且更易于管理，代码的可读性增强。
 
-## ⚒️ 技术选型
+## ✨ 技术选型
 
 ### 包管理工具 -- pnpm
 
@@ -44,7 +44,7 @@ React Hooks
 
 `jest`功能全面，继承了开发者所需要的断言、测试覆盖率、JSDom 等所有的测试工具，能够很好地支撑原子化集合的工具函数；
 
-## 其他
+## 📚 其他
 
 ### 生成`CHANGELOG`
 
@@ -55,7 +55,7 @@ npm install -g conventional-changelog-cli
 pnpm run changelog
 ```
 
-## 📧 联系
+## 📮 联系
 
 - **GitHub**: <https://github.com/GXY1523/gxy-hooks>
 

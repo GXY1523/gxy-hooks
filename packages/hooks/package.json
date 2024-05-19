@@ -1,6 +1,6 @@
 {
   "name": "gxy-hooks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Hooks",
   "keywords": [
     "gxy",
@@ -12,7 +12,7 @@
   "types": "./lib/index.d.ts",
   "unpkg": "dist/gxyHooks.js",
   "sideEffects": false,
-  "authors": "chenghuai",
+  "authors": "gxy",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

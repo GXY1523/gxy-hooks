@@ -7,7 +7,7 @@ import React from 'react';
 import { useToggle } from 'gxyHooks';
 
 export default () => {
-  const [state, { toggle, set, setLeft, setRight }] = useToggle('Hello', 'World');
+  const [state, { toggle, set, setLeft, setRight }] = useToggle('useToggle', 'Toggle');
 
   return (
     <div>
@@ -16,11 +16,11 @@ export default () => {
         <button type="button" onClick={toggle}>
           Toggle
         </button>
-        <button type="button" onClick={() => set('Hello')} style={{ margin: '0 8px' }}>
-          Set Hello
+        <button type="button" onClick={() => set('useToggle')} style={{ margin: '0 8px' }}>
+          Set useToggle
         </button>
-        <button type="button" onClick={() => set('World')}>
-          Set World
+        <button type="button" onClick={() => set('Toggle')}>
+          Set Toggle
         </button>
         <button type="button" onClick={setLeft} style={{ margin: '0 8px' }}>
           Set Left

@@ -8,35 +8,38 @@ const callToggle = (hook: any) => {
 };
 
 describe('useToggle', () => {
-  it('test on init', async () => {
+  it('基础功能测试', () => {
     const hook = renderHook(() => useToggle());
     expect(hook.result.current[0]).toBeFalsy();
   });
 
-  it('test on methods', async () => {
-    const hook = renderHook(() => useToggle('Hello'));
-    expect(hook.result.current[0]).toBe('Hello');
+  it('功能测试', () => {
+    const hook = renderHook(() => useToggle('useToggle'));
+    expect(hook.result.current[0]).toBe('useToggle');
     callToggle(hook);
     expect(hook.result.current[0]).toBeFalsy();
+
     act(() => {
       hook.result.current[1].setLeft();
     });
-    expect(hook.result.current[0]).toBe('Hello');
+    expect(hook.result.current[0]).toBe('useToggle');
     act(() => {
       hook.result.current[1].setRight();
     });
     expect(hook.result.current[0]).toBeFalsy();
   });
 
-  it('test on optional', () => {
-    const hook = renderHook(() => useToggle('Hello', 'World'));
+  it('针对手动切换 Toggle 测试', () => {
+    const hook = renderHook(() => useToggle('useToggle', 'Toggle'));
     callToggle(hook);
-    expect(hook.result.current[0]).toBe('World');
+    expect(hook.result.current[0]).toBe('Toggle');
+
     act(() => {
-      hook.result.current[1].set('World');
+      hook.result.current[1].set('Toggle');
     });
-    expect(hook.result.current[0]).toBe('World');
+    expect(hook.result.current[0]).toBe('Toggle');
+
     callToggle(hook);
-    expect(hook.result.current[0]).toBe('Hello');
+    expect(hook.result.current[0]).toBe('useToggle');
   });
 });
