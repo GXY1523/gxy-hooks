@@ -28,5 +28,5 @@ $ yarn add gxy-hooks
 ## 🛠️ 使用
 
 ```ts
-import { useToggle } from 'gxy-hooks';
+import {} from 'gxy-hooks';
 ```
