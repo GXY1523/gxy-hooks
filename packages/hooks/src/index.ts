@@ -19,8 +19,16 @@ import useHistoryTravel from './useHistoryTravel';
 import useCookieState from './useCookieState';
 import useMap from './useMap';
 import useSet from './useSet';
+import useResetState from './useResetState';
+import useLocalStorageState from './useLocalStorageState';
+import useUpdateEffect from './useUpdateEffect';
+import useSessionStorageState from './useSessionStorageState';
+import usePrevious from './usePrevious';
+
+import { createUpdateEffect } from './createUpdateEffect';
 
 export {
+  createUpdateEffect,
   useToggle,
   useBoolean,
   useLatest,
@@ -42,4 +50,9 @@ export {
   useCookieState,
   useMap,
   useSet,
+  useResetState,
+  useLocalStorageState,
+  useUpdateEffect,
+  useSessionStorageState,
+  usePrevious,
 };

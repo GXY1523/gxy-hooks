@@ -12,6 +12,10 @@ export const menus = [
       'useCookieState',
       'useMap',
       'useSet',
+      'useResetState',
+      'useLocalStorageState',
+      'useSessionStorageState',
+      'usePrevious',
     ],
   },
   {
@@ -34,7 +38,7 @@ export const menus = [
   },
   {
     title: 'Effect',
-    children: ['useThrottleFn', 'useDebounceFn'],
+    children: ['useThrottleFn', 'useDebounceFn', 'useUpdateEffect'],
   },
   {
     title: 'Scene',
