@@ -7,6 +7,18 @@ import useTitle from './useTitle';
 import useRafState from './useRafState';
 import useThrottleFn from './useThrottleFn';
 import useThrottle from './useThrottle';
+import useDebounceFn from './useDebounceFn';
+import useDebounce from './useDebounce';
+import useClickAway from './useClickAway';
+import useEventListener from './useEventListener';
+import useDocumentVisibility from './useDocumentVisibility';
+import useEventTarget from './useEventTarget';
+import useMemoizedFn from './useMemoizedFn';
+import useSetState from './useSetState';
+import useHistoryTravel from './useHistoryTravel';
+import useCookieState from './useCookieState';
+import useMap from './useMap';
+import useSet from './useSet';
 
 export {
   useToggle,
@@ -18,4 +30,16 @@ export {
   useRafState,
   useThrottleFn,
   useThrottle,
+  useDebounceFn,
+  useDebounce,
+  useClickAway,
+  useEventListener,
+  useDocumentVisibility,
+  useEventTarget,
+  useMemoizedFn,
+  useSetState,
+  useHistoryTravel,
+  useCookieState,
+  useMap,
+  useSet,
 };

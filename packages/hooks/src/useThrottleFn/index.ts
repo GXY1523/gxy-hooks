@@ -11,7 +11,7 @@ type noop = (...args: any[]) => any;
 function useThrottleFn<T extends noop>(fun: T, option?: ThrottleOption) {
   if (isDev) {
     if (!isFunction(fun)) {
-      console.error(`useThrottleFn expected parameter is a function, got ${typeof fun}`);
+      console.error(`useThrottleFn 期望参数是一个函数, 但得到了 ${typeof fun}`);
     }
   }
 

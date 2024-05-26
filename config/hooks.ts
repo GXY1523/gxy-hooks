@@ -1,11 +1,22 @@
 export const menus = [
   {
     title: '状态',
-    children: ['useToggle', 'useBoolean', 'useGetState', 'useRafState', 'useThrottle'],
+    children: [
+      'useToggle',
+      'useBoolean',
+      'useGetState',
+      'useRafState',
+      'useThrottle',
+      'useDebounce',
+      'useSetState',
+      'useCookieState',
+      'useMap',
+      'useSet',
+    ],
   },
   {
     title: '进阶',
-    children: ['useLatest'],
+    children: ['useLatest', 'useMemoizedFn'],
   },
   {
     title: '生命周期',
@@ -13,10 +24,20 @@ export const menus = [
   },
   {
     title: 'DOM',
-    children: ['useTitle'],
+    children: [
+      'useTitle',
+      'useClickAway',
+      'useEventListener',
+      'useDocumentVisibility',
+      'useEventTarget',
+    ],
   },
   {
     title: 'Effect',
-    children: ['useThrottleFn'],
+    children: ['useThrottleFn', 'useDebounceFn'],
+  },
+  {
+    title: 'Scene',
+    children: ['useHistoryTravel'],
   },
 ];
