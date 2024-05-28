@@ -16,9 +16,9 @@ export default function () {
   return (
     <>
       <p>{value?.join('-')}</p>
-      <div style={{ marginTop: '10px' }}>
+      <div style={{ marginTop: '16px' }}>
         <button
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '16px' }}
           onClick={() => setValue([...value, Math.random().toString(36).slice(-1)])}
         >
           随机生成一个字母，添加至末尾

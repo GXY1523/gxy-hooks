@@ -16,6 +16,7 @@ export const menus = [
       'useLocalStorageState',
       'useSessionStorageState',
       'usePrevious',
+      'useDefault',
     ],
   },
   {

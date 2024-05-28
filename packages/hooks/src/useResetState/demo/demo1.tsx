@@ -12,8 +12,8 @@ export default () => {
   return (
     <div>
       <pre>{JSON.stringify(state, null, 2)}</pre>
-      <div style={{ marginTop: '10px' }}>
-        <button onClick={() => setState({ name: 'q', job: 't' })} style={{ marginRight: '10px' }}>
+      <div style={{ marginTop: '16px' }}>
+        <button onClick={() => setState({ name: 'q', job: 't' })} style={{ marginRight: '16px' }}>
           set
         </button>
         <button onClick={resetState}>reset</button>

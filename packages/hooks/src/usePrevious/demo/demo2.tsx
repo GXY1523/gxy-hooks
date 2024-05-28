@@ -37,15 +37,15 @@ export default () => {
         <p>current job : {person.job}</p>
       </div>
 
-      <div style={{ marginTop: '10px', border: '1px solid #efefef', paddingLeft: '10px' }}>
+      <div style={{ marginTop: '16px', border: '1px solid #efefef', paddingLeft: '10px' }}>
         <p>previous name : {(preName || {}).name}</p>
         <p>previous job : {(preJob || {}).job}</p>
       </div>
 
-      <div style={{ marginTop: '10px' }}>
+      <div style={{ marginTop: '16px' }}>
         <div>
           <input
-            style={{ width: 220, marginRight: '10px' }}
+            style={{ width: 220, marginRight: '16px' }}
             value={nameInput}
             onChange={(e) => setNameInput(e.target.value)}
             placeholder="请输入 名字"
@@ -59,9 +59,9 @@ export default () => {
           </button>
         </div>
 
-        <div style={{ marginTop: '10px' }}>
+        <div style={{ marginTop: '16px' }}>
           <input
-            style={{ width: 220, marginRight: '10px' }}
+            style={{ width: 220, marginRight: '16px' }}
             value={jobInput}
             onChange={(e) => setJobInput(e.target.value)}
             placeholder="请输入 职业"

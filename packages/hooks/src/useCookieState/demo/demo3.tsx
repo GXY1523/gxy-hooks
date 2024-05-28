@@ -18,14 +18,14 @@ export default function App() {
       <p>此时Cookie存储有效期： 2000ms</p>
       <div>
         <button
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 16 }}
           onClick={() => setNum((item) => String(Number(item) + 1))}
         >
           {' '}
           + 1{' '}
         </button>
         <button
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 16 }}
           onClick={() => setNum((item) => String(Number(item) - 1))}
         >
           {' '}

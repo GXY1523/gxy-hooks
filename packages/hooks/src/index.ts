@@ -24,6 +24,7 @@ import useLocalStorageState from './useLocalStorageState';
 import useUpdateEffect from './useUpdateEffect';
 import useSessionStorageState from './useSessionStorageState';
 import usePrevious from './usePrevious';
+import useDefault from './useDefault';
 
 import { createUpdateEffect } from './createUpdateEffect';
 
@@ -55,4 +56,5 @@ export {
   useUpdateEffect,
   useSessionStorageState,
   usePrevious,
+  useDefault,
 };

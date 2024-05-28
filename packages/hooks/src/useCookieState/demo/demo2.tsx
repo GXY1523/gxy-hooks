@@ -15,14 +15,14 @@ export default function App() {
       <p>{num}</p>
       <div>
         <button
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 16 }}
           onClick={() => setNum((item) => String(Number(item) + 1))}
         >
           {' '}
           + 1{' '}
         </button>
         <button
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 16 }}
           onClick={() => setNum((item) => String(Number(item) - 1))}
         >
           {' '}
